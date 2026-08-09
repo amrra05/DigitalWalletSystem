@@ -1,0 +1,372 @@
+/* =========================
+   Admin Audit Logs Page
+========================= */
+
+.admin-audit-page {
+
+    min-height: 100vh;
+
+    background: #eef3fb;
+
+    padding: 40px;
+
+}
+
+
+.admin-audit-page h1 {
+
+    color: #1e3a8a;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================
+   Toolbar
+========================= */
+
+.audit-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    flex-wrap: wrap;
+
+}
+
+
+.audit-search,
+.audit-filter,
+.audit-date {
+
+    padding: 12px 16px;
+
+    border: 1px solid #dbe4f0;
+
+    border-radius: 12px;
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: .25s;
+
+}
+
+
+/* Search */
+
+.audit-search {
+
+    width: 300px;
+
+}
+
+
+/* ID filters */
+
+.audit-filter {
+
+    width: 140px;
+
+}
+
+
+/* Date filters */
+
+.audit-date {
+
+    width: 160px;
+
+}
+
+
+.audit-search:focus,
+.audit-filter:focus,
+.audit-date:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, .15);
+
+}
+
+
+/* =========================
+   Audit Table
+========================= */
+
+.audit-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .08);
+
+}
+
+
+.audit-table thead {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+.audit-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.audit-table td {
+
+    padding: 18px;
+
+    border-bottom: 1px solid #edf2f7;
+
+    font-size: 14px;
+
+    color: #334155;
+
+}
+
+
+.audit-table tbody tr {
+
+    transition: .2s;
+
+}
+
+
+.audit-table tbody tr:hover {
+
+    background: #f8fbff;
+
+}
+
+
+.audit-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =========================
+   Action Badge
+========================= */
+
+.audit-action {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 8px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   Empty State
+========================= */
+
+.no-logs {
+
+    text-align: center;
+
+    padding: 45px !important;
+
+    color: #64748b !important;
+
+    font-size: 15px !important;
+
+}
+
+
+/* =========================
+   Pagination
+========================= */
+
+.audit-pagination {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.audit-pagination button {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: .25s;
+
+}
+
+
+.audit-pagination button:hover:not(:disabled) {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+.audit-pagination button:disabled {
+
+    background: #cbd5e1;
+
+    cursor: not-allowed;
+
+}
+
+
+.audit-pagination span {
+
+    font-weight: 600;
+
+    color: #334155;
+
+}
+
+
+/* =========================
+   Skeleton
+========================= */
+
+.audit-skeletons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+    .admin-audit-page {
+
+        padding: 25px;
+
+    }
+
+
+    .audit-toolbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .audit-search,
+    .audit-filter,
+    .audit-date {
+
+        width: 100%;
+
+    }
+
+
+    .audit-table {
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-audit-page {
+
+        padding: 20px;
+
+    }
+
+
+    .audit-pagination {
+
+        gap: 10px;
+
+    }
+
+
+    .audit-pagination button {
+
+        padding: 9px 13px;
+
+    }
+
+}

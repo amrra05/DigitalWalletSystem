@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#eef3fb;
+
+}
+
+
+
+.dashboard-page{
+
+    min-height:100vh;
+
+}
+
+
+
+.dashboard-content{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:40px auto;
+
+}
+
+
+
+.top-cards{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+@media(max-width:900px){
+
+    .top-cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
