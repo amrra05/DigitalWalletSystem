@@ -41,6 +41,7 @@ Thumbs.db
 
 # Application logs
 **/Logs/
+*.log
 
 # Temporary backup files
 *.tmp
