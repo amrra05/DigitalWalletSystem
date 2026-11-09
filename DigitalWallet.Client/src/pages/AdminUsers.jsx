@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAdminUsers } from "../services/adminService";
-import Skeleton from "../components/Skeleton/Skeleton";
+import Skeleton from "../components/skeleton/Skeleton";
 import BackButton from "../components/BackButton";
 import {
     freezeUser,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAdminDashboard } from "../services/adminService";
 import { Link } from "react-router-dom";
-import Skeleton from "../components/Skeleton/Skeleton";
+import Skeleton from "../components/skeleton/Skeleton";
 import LogoutButton from "../components/LogoutButton";
 import "./styles/AdminDashboard.css";
 
