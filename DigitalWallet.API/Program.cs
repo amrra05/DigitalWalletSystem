@@ -29,16 +29,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
 
+var allowedOrigin = builder.Configuration["Frontend:AllowedOrigin"]
+                    ?? "http://localhost:5173";
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReact",
-        policy =>
-        {
-            policy
-                .WithOrigins("http://localhost:5173")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowReact", policy =>
+    {
+        policy
+            .WithOrigins(allowedOrigin)
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
 
 builder.Services
@@ -213,7 +215,11 @@ using (var scope = app.Services.CreateScope())
 
 app.UseSerilogRequestLogging();
 
-if (app.Environment.IsDevelopment())
+var enableSwagger =
+    app.Environment.IsDevelopment() ||
+    builder.Configuration.GetValue<bool>("Swagger:Enabled");
+
+if (enableSwagger)
 {
     app.UseSwagger();
 
