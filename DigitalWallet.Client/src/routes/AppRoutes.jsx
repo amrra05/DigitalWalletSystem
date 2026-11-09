@@ -42,7 +42,14 @@ function AppRoutes()
             }
             />
 
-
+            <Route
+                path="/login"
+                element={
+                    <PublicRoute>
+                <Login/>
+                </PublicRoute>
+            }
+            />
                 <Route
 
                     path="/dashboard"
