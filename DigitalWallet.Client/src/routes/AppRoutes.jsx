@@ -34,7 +34,7 @@ function AppRoutes()
         <Routes>
 
             <Route
-                path="/login"
+                path="/"
                 element={
                     <PublicRoute>
                 <Login/>
