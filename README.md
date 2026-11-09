@@ -296,7 +296,7 @@ Possible future improvements include:
 
 ## Author
 
-**Amr Ramahi**
+**Amr Alramahi**
 
 Computer Science Student
 Jordan University of Science and Technology
