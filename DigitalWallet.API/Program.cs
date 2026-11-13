@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.RateLimiting;
 
@@ -139,6 +140,33 @@ builder.Services
                         )
                     )
             };
+
+        // Check whether the user is still active
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = async context =>
+            {
+                var userRepository =
+                    context.HttpContext.RequestServices
+                    .GetRequiredService<IUserRepository>();
+
+                var userId = context.Principal?
+                    .FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (!int.TryParse(userId, out int id))
+                {
+                    context.Fail("Invalid token.");
+                    return;
+                }
+
+                var user = await userRepository.GetByIdAsync(id);
+
+                if (user == null || !user.IsActive)
+                {
+                    context.Fail("Your account has been deactivated.");
+                }
+            }
+        };
     });
 
 builder.Services.AddEndpointsApiExplorer();
